@@ -1,0 +1,54 @@
+# Warp Launch Configuration
+#
+#
+# Use this to start a certain configuration of windows, tabs, and panes.
+# Open the launch configuration palette to access and open any launch configuration.
+#
+# This file defines your launch configuration.
+# More on how to do so here:
+# https://docs.warp.dev/features/sessions/launch-configurations
+#
+# All launch configurations are stored under ~/.warp/launch_configurations.
+# Edit them anytime!
+#
+# You can also add commands that run on-start for your launch configurations like so:
+# ---
+# name: Example with Command
+# windows:
+#  - tabs:
+#      - layout:
+#          cwd: /Users/warp-user/project
+#          commands:
+#            - exec: code .
+
+---
+name: Pragma Launch Config
+active_window_index: 0
+windows:
+  - active_tab_index: 4
+    tabs:
+      - title: ".dotFiles"
+        layout:
+          cwd: ~/.dotfiles
+          is_focused: false
+        color: cyan
+      - title: pragma-project-MAIN
+        layout:
+          cwd: ~/dev/pragma-project-main
+          is_focused: false
+        color: yellow
+      - title: pragma-project-REVIEW
+        layout:
+          cwd: ~/dev/pragma-project-review
+          is_focused: false
+        color: magenta
+      - title: pragma-project-AGENT
+        layout:
+          cwd: ~/dev/pragma-project-agent
+          is_focused: false
+        color: cyan
+      - title: pragma-project-DEV
+        layout:
+          cwd: ~/dev/pragma-project
+          is_focused: true
+        color: green

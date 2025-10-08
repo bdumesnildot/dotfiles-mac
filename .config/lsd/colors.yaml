@@ -1,0 +1,38 @@
+user: "#72c890" # Matches the Warp accent color
+group: "#9cdcfe" # Cyan, similar to terminal bright cyan
+permission:
+  read: "#6a9955" # Matches terminal green
+  write: "#fdd600" # Matches terminal yellow
+  exec: "#ea0000" # Matches terminal red
+  exec-sticky: "#d26dcf" # Matches terminal magenta
+  no-access: "#545455" # Matches Warp foreground color
+  octal: "#fdd600" # Same as write (yellow)
+  acl: "#9cdcfe" # Matches terminal cyan
+  context: "#4dbdfb" # Bright blue
+date:
+  hour-old: "#cccccc" # Terminal normal white
+  day-old: "#fefefe" # Terminal bright white
+  older: "#545455" # Warp foreground color
+size:
+  none: "#cccccc" # Terminal normal white
+  small: "#dbdbA9" # Slightly desaturated yellow
+  medium: "#72c890" # Warp accent color
+  large: "#6a9955" # Matches green
+inode:
+  valid: "#569cd6" # Matches terminal blue
+  invalid: "#cccccc" # Normal white
+links:
+  valid: "#569cd6" # Matches terminal blue
+  invalid: "#cccccc" # Normal white
+tree-edge: "#545455" # Warp foreground color
+git-status:
+  default: "#cccccc" # Terminal normal white
+  unmodified: "#cccccc" # Terminal normal white
+  ignored: "#333333" # Bright black
+  new-in-index: "#6a9955" # Matches green
+  new-in-workdir: "#6a9955" # Matches green
+  typechange: "#fdd600" # Matches yellow
+  deleted: "#ea0000" # Matches red
+  renamed: "#72c890" # Warp accent color
+  modified: "#fdd600" # Matches yellow
+  conflicted: "#ea0000" # Matches red

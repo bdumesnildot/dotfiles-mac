@@ -1,0 +1,218 @@
+{
+  "title": "RIGHT_CMD - as modifier key",
+  "rules": [
+    {
+      "description": "RIGHT_CMD as modifier key",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_command",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "mod_right_cmd",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "mod_right_cmd",
+                "value": 0
+              }
+            }
+          ],
+          "to_if_alone": [{ "key_code": "right_command" }],
+          "to_if_held_down": [{ "key_code": "right_command" }],
+          "type": "basic"
+        }
+      ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 50,
+        "basic.to_if_alone_timeout_milliseconds": 50,
+        "basic.to_if_held_down_threshold_milliseconds": 50
+      }
+    },
+    {
+      "description": "RIGHT_CMD layer keystrokes",
+      "manipulators": [
+        {
+          "description": "RIGHT_CMD + r -> { ",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": ["right_option"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "RIGHT_CMD + u -> } ",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["right_option"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "RIGHT_CMD + e -> [ ",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": ["right_option", "right_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "RIGHT_CMD + i -> ] ",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["right_option", "right_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "RIGHT_CMD + backspace -> delete current word ",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_option", "left_shift"]
+            },
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "RIGHT_CMD + Yabaï",
+      "manipulators": [
+        {
+          "description": "RIGHT_CMD + spacebar -> toggle layout",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "shell_command": "/bin/zsh ~/.config/yabai/scripts/toggleLayout.sh"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "RIGHT_CMD + ; -> switch window",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "shell_command": "/bin/zsh ~/.config/yabai/scripts/windowSwitch.sh"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "RIGHT_CMD + : -> move window to next monitor",
+          "conditions": [
+            {
+              "name": "mod_right_cmd",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "shell_command": "/bin/zsh ~/.config/yabai/scripts/monitorSwitch.sh"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

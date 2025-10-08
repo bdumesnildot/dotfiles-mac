@@ -1,0 +1,10 @@
+**/extensions
+**/debug
+
+/.config/karabiner/automatic_backups
+
+/.warp/themes/
+!/.warp/themes/custom/
+
+.bak
+.DS_Store
