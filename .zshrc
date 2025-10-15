@@ -42,6 +42,11 @@ alias cdpp='cd ~/dev/pragma-project'
 alias cddw='cd ~/Downloads'
 alias cdcf='cd ~/.config'
 
+## Fonction pour créer un dossier et y naviguer
+mkcd () {
+  mkdir -p "$@" && cd "${@:$#}"
+}
+
 alias ccc='clear'
 
 # utils aliases
