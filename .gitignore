@@ -1,6 +1,13 @@
 **/extensions
 **/debug
 
+.env
+.secrets
+
+.vscode/
+
+.old
+
 /.config/karabiner/automatic_backups
 
 /.warp/themes/

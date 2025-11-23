@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 # ==============================================================================
 alias zshconfig="code ~/.config/zsh/zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+alias dotfiles="code ~/.dotfiles"
 alias currentbranch="git branch | grep \* | cut -d ' ' -f2"
 
 # cmd aliases
@@ -60,15 +61,12 @@ alias y='yarn'
 alias pn='pnpm'
 alias pni='pnpm install'
 
-# vs code aliases
-alias codecf= 'code ~/.config'
-
 # project-specific aliases
 alias pnd='pnpm dev --log-order=stream'
 
 alias pnda='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-booking --filter @pragma/api-customer --filter @pragma/api-dataflow --filter @pragma/api-loyalty --filter @pragma/api-order --filter @pragma/api-pos --filter @pragma/api-sync --filter @pragma/api-webhook --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice'
 
-alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop'
+alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync  --filter @pragma/api-customer --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop'
 
 # ==============================================================================
 #  4. PATH & ENVIRONMENT SETUP
@@ -97,3 +95,10 @@ export PATH="/Users/bdumesnildot/.opencode/bin:$PATH"
 
 # fnm node version manager (alway last)
 eval "$(fnm env --use-on-cd --shell zsh)"
+
+
+# ==============================================================================
+#  5. FZF CONFIGURATION
+# ==============================================================================
+# Define the default search command for FZF, explicitly excluding OrbStack paths and other temporary/virtual files.
+export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/OrbStack/*" -not -path "*.git/*" 2>/dev/null'
