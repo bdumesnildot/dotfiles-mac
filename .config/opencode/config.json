@@ -1,14 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "theme": "system",
-  "model": "github-copilot/claude-sonnet-4",
+  "theme": "aura",
+  "model": "google/gemini-2.5-flash",
   "agent": {
     "plan": {
-      "model": "github-copilot/claude-sonnet-4"
+      "model": "google/gemini-3-pro-preview"
     },
     "build": {
-      "model": "github-copilot/claude-sonnet-4"
+      "model": "github-copilot/claude-sonnet-4.5"
     }
   },
   "mcp": {
@@ -26,6 +26,19 @@
       "enabled": false,
       "type": "remote",
       "url": "http://127.0.0.1:3845/sse"
+    },
+    "pragma-dx": {
+      "enabled": false,
+      "type": "remote",
+      "url": "http://127.0.0.1:8008/v1/mcp"
+    },
+    "n8n-popina-mcp": {
+      "enabled": false,
+      "type": "remote",
+      "url": "{file:./.secrets/N8N_POPINA_MCP_SERVER_URL}",
+      "headers": {
+        "Authorization": "{file:./.secrets/N8N_POPINA_MCP_BEARER_TOKEN}"
+      }
     }
   },
   "keybinds": {

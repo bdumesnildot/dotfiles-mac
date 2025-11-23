@@ -1,7 +1,8 @@
 ---
 description: Reviews code for quality and best practices
 mode: primary
-model: github-copilot/claude-sonnet-4
+# model: github-copilot/claude-sonnet-4.5
+model: google/gemini-3-pro-preview
 temperature: 0.1
 tools:
   write: false

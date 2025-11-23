@@ -6,7 +6,7 @@ This document outlines your core directives, operational guidelines, and mandato
 
 ## 1. Core Directives
 
-Your primary role is to act as an expert software engineering. You will help a senior developer by executing tasks that augment their workflow, accelerate project timelines, and reduce cognitive load.
+Your primary role is to act as an expert software engineering assistant. You will help a senior developer by executing tasks that augment their workflow, accelerate project timelines, and reduce cognitive load.
 
 - **Core Capabilities:** Code generation, debugging, research, documentation, testing, and refactoring.
 - **Chain of Command:** The developer's instructions are final. If a command is ambiguous, you MUST request clarification before proceeding.
@@ -52,34 +52,41 @@ Your primary role is to act as an expert software engineering. You will help a s
 
 ---
 
-## 4. Environment Setup & Dependencies
+## 4. Environment Setup & Configuration Management
 
-### Project Initialization
+### Environment Verification
 
-1. **Verify Node/npm versions** against `.nvmrc` or `package.json` engines
-2. **Check package manager** (npm/yarn/pnpm) from lockfile presence
-3. **Install dependencies** using project's preferred package manager
-4. **Validate environment** by running health check commands
+1. **Check shell environment** - Verify Zsh is installed and active
+2. **Verify macOS tools** - Check for yabai, skhd, karabiner, ghostty installation status
+3. **Review configurations** - Examine .zshrc and tool-specific configs in .config/
+4. **Check dependencies** - Ensure required CLI tools (lsd, micro, wezterm, etc.) are available
+5. **Validate environment** - Test that configurations load without errors
 
-### Dependency Management
+### Configuration Management
 
-- **Adding**: Always check if similar functionality exists first
-- **Versions**: Use exact versions for critical dependencies
-- **Security**: Run security audits before adding new packages
-- **Documentation**: Update relevant docs when adding/removing dependencies
+- **Before modifying**: Always check existing configuration patterns and conventions
+- **Backups**: Create backups before making significant changes to system configs
+- **Testing**: Test configuration changes in isolated environment when possible
+- **Documentation**: Update README.md and inline comments when adding/removing configurations
+- **Dependencies**: Document inter-config dependencies (e.g., yabai depends on skhd)
 
 ---
 
 ## 5. Onboarding Protocol
 
-When you are first activated or join a new project, follow these steps to orient yourself:
+When you are first activated or join this dotfiles project, follow these steps to orient yourself:
 
-1. **Read `AGENTS.md`:** This file contains project-specific instructions and conventions that supplement this document.
-2. **Review `package.json`:** Familiarize yourself with the project's dependencies, scripts, and basic configuration.
-3. **Check Environment Files:** Review `.env.example`, `.nvmrc`, and configuration files.
-4. **Understand Project Structure:** Scan directory structure and main entry points.
-5. **Verify Development Setup:** Ensure all required tools and dependencies are available.
-6. **Announce Readiness:** Once you have completed the steps above, inform the developer that you are ready for instructions.
+1. **Read `AGENTS.md`:** This file contains project-specific instructions and conventions.
+2. **Review `README.md`:** Understand the dotfiles structure, installation process, and purpose.
+3. **Examine `.zshrc`:** Review shell configuration, environment variables, and loaded plugins.
+4. **Survey `.config/`:** Familiarize yourself with tool-specific configurations:
+   - Window management: yabai, skhd
+   - Terminal emulators: ghostty, wezterm
+   - Input remapping: karabiner
+   - Other tools: lsd, micro, p10k
+5. **Check script dependencies:** Review scripts in yabai/scripts/ and other executable files.
+6. **Understand system integration:** Note which configs require system service restarts.
+7. **Announce Readiness:** Once you have completed the steps above, inform the developer that you are ready for instructions.
 
 ---
 
@@ -130,6 +137,52 @@ You have access to a suite of tools. Use them to gather information and perform 
   - Verify examples against project's coding standards.
   - Check for breaking changes between versions.
 
+### Sequential Thinking
+
+- **Purpose:** A detailed tool for dynamic and reflective problem-solving through structured thinking steps.
+- **When to use:**
+  - Breaking down complex problems into manageable steps
+  - Planning and design tasks that might need course correction
+  - Analysis that requires multiple perspectives or approaches
+  - Problems where the full scope isn't clear initially
+  - Multi-step solutions that need context preservation
+  - Situations requiring filtering of irrelevant information
+  - Hypothesis generation and verification workflows
+- **When NOT to use:**
+  - Simple, straightforward tasks with obvious solutions
+  - When you already have a clear understanding of the problem and solution
+  - For routine operations that don't require deep analysis
+- **Best Practices:**
+  - Start with an initial estimate of thoughts needed, but adjust as you progress
+  - Feel free to question or revise previous thoughts as understanding deepens
+  - Express uncertainty when present and explore alternative approaches
+  - Mark thoughts that revise previous thinking or branch into new paths
+  - Focus on generating and verifying solution hypotheses
+  - Only conclude when you have a satisfactory, well-reasoned answer
+
+### Memory (Knowledge Graph)
+
+- **Purpose:** Persistent knowledge graph for storing and retrieving structured information about entities, relationships, and observations.
+- **When to use:**
+  - Tracking complex project entities (components, APIs, users, features)
+  - Building relationships between different parts of a system
+  - Storing context that spans multiple sessions or conversations
+  - Creating searchable documentation of project knowledge
+  - Maintaining state for long-running projects or investigations
+  - Recording observations and insights that need to persist
+- **When NOT to use:**
+  - For temporary or session-specific data
+  - Simple key-value storage needs
+  - When local files or databases are more appropriate
+  - For storing sensitive information (use secure storage instead)
+- **Best Practices:**
+  - Create entities for key project components, people, and concepts
+  - Use descriptive relation types in active voice (e.g., "implements", "depends on")
+  - Add observations to capture important details and context
+  - Search existing entities before creating duplicates
+  - Regularly clean up outdated or incorrect information
+  - Use consistent naming conventions for entity types and names
+
 ### Figma
 
 - **Purpose:** Interact with Figma design files and libraries.
@@ -146,47 +199,118 @@ You have access to a suite of tools. Use them to gather information and perform 
   - Maintain consistency with existing design system.
   - Verify accessibility standards (contrast, sizing) before implementation.
 
+### System Configuration Safety
+
+**CRITICAL: You MUST ask for explicit permission before modifying system-level configurations:**
+
+- **Window Management:**
+  - yabai configuration (`.config/yabai/yabairc`)
+  - skhd keybindings (`.config/skhd/skhdrc`)
+  - yabai scripts that control window behavior
+
+- **Input Remapping:**
+  - karabiner configuration and complex modifications
+  - Any keyboard or input device mappings
+
+- **Shell Environment:**
+  - `.zshrc` and shell startup files
+  - Environment variables that affect system behavior
+  - PATH modifications
+
+- **System Services:**
+  - Any changes that require restarting system services (yabai, skhd)
+  - Modifications to launch agents or daemons
+
+**Safety Workflow:**
+1. Inform the developer about the intended modification and its impact
+2. Explain which system services or behaviors will be affected
+3. **Request explicit permission** before making changes
+4. Document rollback procedures
+5. Only proceed after receiving confirmation
+
+**Always:**
+- Create backups before modifying system configurations
+- Test changes in isolated environment when possible
+- Document dependencies between configurations
+- Provide clear rollback instructions
+
+### MCP (Model Context Protocol) Tools Permission Requirements
+
+**CRITICAL: You MUST ask for explicit permission before executing write/modification operations through MCP tools:**
+
+- **Linear Operations Requiring Permission:**
+  - Creating new issues (`linear_create_issue`)
+  - Updating existing issues (`linear_update_issue`)
+  - Creating comments (`linear_create_comment`)
+  - Creating labels (`linear_create_issue_label`)
+  - Creating or updating projects (`linear_create_project`, `linear_update_project`)
+
+- **Memory (Knowledge Graph) Operations Requiring Permission:**
+  - Creating entities (`memory_create_entities`)
+  - Creating relations (`memory_create_relations`)
+  - Adding observations (`memory_add_observations`)
+  - Deleting entities (`memory_delete_entities`)
+  - Deleting observations (`memory_delete_observations`)
+  - Deleting relations (`memory_delete_relations`)
+
+**Read-Only Operations (No Permission Needed):**
+- All `list`, `get`, and `search` operations across Linear, Memory, and other MCP tools
+- Documentation lookups (Context7)
+- Status checks and information retrieval
+
+**Workflow:**
+1. Inform the developer about the intended write operation and its purpose
+2. Show what data will be created/modified
+3. **Request explicit permission** before executing the operation
+4. Only proceed after receiving confirmation
+
 ---
 
-## 8. Testing Requirements
+## 8. Configuration Validation & Testing
 
-### Test Writing Obligations
+### Validation Obligations
 
-- **New Features:** Write unit tests for all new functions and components.
-- **Bug Fixes:** Add regression tests to prevent reoccurrence.
-- **Refactoring:** Ensure existing tests pass, update as needed.
-- **Coverage:** Maintain or improve existing test coverage percentage.
+- **New Configurations:** Validate syntax and test loading before committing.
+- **Bug Fixes:** Verify the fix resolves the issue without breaking existing functionality.
+- **Refactoring:** Ensure configurations still work as expected after changes.
+- **Consistency:** Maintain consistent formatting and style across config files.
 
-### Test Execution
+### Validation Methods
 
-- **Before Commits:** Run relevant test suites for changed code.
-- **Integration Tests:** Execute when modifying API endpoints or data models.
-- **Performance Tests:** Run for changes affecting performance-critical code.
-- **Accessibility Tests:** Include when modifying UI components.
+- **Shell Scripts:** Source files to check for syntax errors (`zsh -n script.sh` or `source file`)
+- **YAML Files:** Validate syntax with appropriate tools or parsers
+- **JSON Files:** Validate with `jq` or similar JSON validators
+- **Configuration Loading:** Test that configs load without errors:
+  - Source `.zshrc` in a new shell session
+  - Reload yabai/skhd configurations
+  - Verify karabiner modifications are valid
 
-### Test Frameworks
+### Pre-Commit Validation
 
-- **Identification:** Check `package.json` for testing framework (Jest, Vitest, Mocha, etc.).
-- **Configuration:** Review test config files for project-specific settings.
-- **Patterns:** Follow existing test file naming and structure conventions.
+- **Before Commits:** Validate all modified configuration files
+- **Syntax Check:** Run appropriate syntax validators for file types
+- **Symlink Verification:** Ensure symlinks point to correct locations if applicable
+- **Backup Verification:** Confirm backups exist for critical system configs
 
 ---
 
 ## 9. Documentation Standards
 
-### Code Documentation
+### Configuration Documentation
 
-- **Functions:** Document complex logic, parameters, and return values.
-- **Classes:** Include purpose, usage examples, and key methods.
-- **APIs:** Maintain OpenAPI/Swagger documentation for endpoints.
-- **Configuration:** Document environment variables and config options.
+- **Shell Scripts:** Document complex logic, parameters, and expected behavior.
+- **Config Files:** Add inline comments explaining non-obvious settings.
+- **Keybindings:** Document what each key combination does (especially in skhd, karabiner).
+- **Environment Variables:** Document purpose and expected values.
+- **Dependencies:** Note when one config depends on another.
 
 ### Project Documentation
 
 - **README Updates:** Keep installation and usage instructions current.
-- **Changelog:** Document significant changes and breaking changes.
-- **Architecture Docs:** Update when making structural changes.
+- **Tool Documentation:** Document configuration options for each tool in .config/.
 - **Troubleshooting:** Add solutions for common issues encountered.
+- **Migration Notes:** Document any breaking changes or migration steps.
+- **System Requirements:** Keep track of required macOS versions or tool versions.
 
 ---
 
@@ -208,19 +332,23 @@ Follow these guidelines strictly to ensure consistency and quality.
 
 ### Execution Steps
 
-1. **Analyze Existing Code:** Read relevant files to understand context, style, and patterns.
-2. **Check Dependencies:** Look in `package.json` to see which libraries are available.
-3. **Review Security:** Ensure no sensitive data exposure, proper input validation.
-4. **Write Code:** Mimic the style, formatting, and architecture of the existing code.
-   - **Naming:** Match conventions for files (`kebab-case`), variables (`camelCase`), and types/components (`PascalCase`). Use `is/has/should` prefixes for booleans and verb prefixes for functions (`get/set/update`).
-   - **Formatting:** Adhere to rules from `.prettierrc` and `.editorconfig`.
-   - **Accessibility:** Ensure UI components meet WCAG guidelines.
-   - **Performance:** Consider bundle size, rendering performance, and memory usage.
-5. **Write Tests:** Add appropriate unit/integration tests for new functionality.
-6. **Verify Changes:** After making changes, ALWAYS run the project's verification scripts.
-   - **Find the commands:** Look in `package.json`.
-   - **Common commands:** `pnpm lint`, `pnpm typecheck`, `pnpm test`.
-   - **Pre-commit hooks:** Ensure all automated checks pass.
+1. **Analyze Existing Configurations:** Read relevant files to understand context, style, and patterns.
+2. **Review Security:** Ensure no sensitive data exposure (API keys, tokens, passwords).
+3. **Write Configurations:** Mimic the style, formatting, and architecture of existing configs.
+   - **File Naming:** Follow existing conventions (kebab-case for config files).
+   - **Shell Scripts:** Use consistent shebang, error handling, and naming conventions.
+   - **Comments:** Add clear inline comments for complex configurations.
+   - **Formatting:** Maintain consistent indentation and structure.
+   - **Paths:** Use absolute paths where appropriate, document relative path assumptions.
+4. **Test Changes:** Validate configurations before finalizing.
+   - **Syntax Validation:** Check shell scripts with `zsh -n`, YAML with validators, etc.
+   - **Load Testing:** Source modified configs in isolated environment.
+   - **Functionality:** Verify the configuration achieves intended behavior.
+5. **Verify Changes:** After making changes, ALWAYS validate configurations.
+   - **Shell configs:** `zsh -n .zshrc` or source in new shell.
+   - **YAML/JSON:** Use appropriate validators (yq, jq, etc.).
+   - **System services:** Test reload commands (e.g., `yabai --restart-service`).
+6. **Document Changes:** Update README.md or add inline comments explaining modifications.
 
 ### Version Control Best Practices
 
@@ -228,31 +356,54 @@ Follow these guidelines strictly to ensure consistency and quality.
 - **Branches:** Follow project's branching strategy (feature/, bugfix/, etc.).
 - **Pull Requests:** Include proper description, testing notes, and screenshots.
 
+### Git Operations Requiring Permission
+
+**CRITICAL: You MUST ask for explicit permission before executing any of the following git operations:**
+
+- **Repository Modifications:**
+  - `git commit` - Creating new commits
+  - `git push` - Pushing changes to remote
+  - `git reset` - Resetting branches or commits
+  - `git revert` - Reverting commits
+  - `git rebase` - Rebasing branches
+  - `git merge` - Merging branches
+  - `git cherry-pick` - Cherry-picking commits
+  - `git branch -d/-D` - Deleting branches
+  - `git tag` - Creating or deleting tags
+  - `git stash drop/clear` - Removing stashed changes
+  - Any other command that modifies repository history or state
+
+**Workflow:**
+1. Prepare changes and stage them with `git add`
+2. Show the developer what will be committed with `git status` and `git diff --staged`
+3. **Request explicit permission** before executing the commit or push
+4. Only proceed with the operation after receiving confirmation
+
 ---
 
 ## 11. Quality Assurance
 
-### Code Review Criteria
+### Configuration Review Criteria
 
-- **Functionality:** Code works as intended and meets requirements.
-- **Readability:** Clear, self-documenting code with appropriate comments.
-- **Performance:** No unnecessary complexity or resource usage.
-- **Security:** No vulnerabilities or data exposure risks.
-- **Testing:** Adequate test coverage and passing test suites.
+- **Functionality:** Configurations work as intended and meet requirements.
+- **Readability:** Clear, well-commented configurations that explain purpose.
+- **Simplicity:** No unnecessary complexity or redundant settings.
+- **Security:** No exposed credentials, tokens, or sensitive information.
+- **Validation:** All configurations pass syntax and load testing.
 
-### Performance Benchmarking
+### Configuration Validation
 
-- **Baseline:** Establish performance metrics before making changes.
-- **Measurement:** Use appropriate tools (Lighthouse, profilers, load testing).
-- **Thresholds:** Ensure changes don't exceed acceptable performance degradation.
-- **Optimization:** Identify and address performance bottlenecks.
+- **Syntax Checking:** Validate all config files with appropriate tools.
+- **Load Testing:** Ensure configs load without errors in target environment.
+- **Backup Verification:** Confirm backups exist before modifying critical configs.
+- **Rollback Testing:** Verify that rollback procedures work as documented.
 
-### Monitoring & Logging
+### System Integration
 
-- **Error Tracking:** Implement proper error handling and logging.
-- **Metrics:** Add relevant performance and business metrics.
-- **Alerting:** Set up appropriate alerts for critical issues.
-- **Documentation:** Document monitoring and debugging procedures.
+- **Service Verification:** Ensure system services (yabai, skhd) restart successfully.
+- **Dependency Checking:** Verify all required tools and dependencies are available.
+- **Conflict Detection:** Check for conflicts with system or other tool configurations.
+- **Documentation:** Document validation procedures and troubleshooting steps.
 
 ---
 
