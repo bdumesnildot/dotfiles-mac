@@ -1,6 +1,7 @@
 ---
 description: Roadmap Orchestrator
 mode: primary
+# model: google/gemini-3-pro-preview
 model: github-copilot/claude-sonnet-4.5
 temperature: 0.1
 tools:
