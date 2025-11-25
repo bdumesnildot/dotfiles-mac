@@ -1,2 +1,15 @@
-font-size = 13
+# Ghostty Configuration File
+
+shell-integration = zsh
+
+copy-on-select = true
+clipboard-read = allow
+clipboard-write = allow
+
+maximize = true
+window-theme = dark
 theme = Custom-dark-plus-vscode
+
+window-padding-x = 12
+window-padding-y = 4
+font-size = 13
