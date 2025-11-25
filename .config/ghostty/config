@@ -1,15 +1,20 @@
 # Ghostty Configuration File
 
 shell-integration = zsh
+# command = ~/.config/tmux/launch/launch_popina_web.sh
 
 copy-on-select = true
 clipboard-read = allow
 clipboard-write = allow
 
-maximize = true
 window-theme = dark
 theme = Custom-dark-plus-vscode
+
+maximize = true
 
 window-padding-x = 12
 window-padding-y = 4
 font-size = 13
+
+background-opacity = 0.7
+background-blur = 50
