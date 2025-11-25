@@ -43,6 +43,8 @@ alias cdpp='cd ~/dev/pragma-project'
 alias cddw='cd ~/Downloads'
 alias cdcf='cd ~/.config'
 
+alias tmuxpop='~/.config/tmux/launch/launch_popina_web.sh'
+
 ## Fonction pour créer un dossier et y naviguer
 mkcd () {
   mkdir -p "$@" && cd "${@:$#}"
@@ -66,7 +68,7 @@ alias pnd='pnpm dev --log-order=stream'
 
 alias pnda='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-booking --filter @pragma/api-customer --filter @pragma/api-dataflow --filter @pragma/api-loyalty --filter @pragma/api-order --filter @pragma/api-pos --filter @pragma/api-sync --filter @pragma/api-webhook --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice'
 
-alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync  --filter @pragma/api-customer --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop'
+alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync  --filter @pragma/api-customer --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop --filter @pragma/api'
 
 # ==============================================================================
 #  4. PATH & ENVIRONMENT SETUP
