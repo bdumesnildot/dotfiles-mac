@@ -204,15 +204,18 @@ You have access to a suite of tools. Use them to gather information and perform 
 **CRITICAL: You MUST ask for explicit permission before modifying system-level configurations:**
 
 - **Window Management:**
+
   - yabai configuration (`.config/yabai/yabairc`)
   - skhd keybindings (`.config/skhd/skhdrc`)
   - yabai scripts that control window behavior
 
 - **Input Remapping:**
+
   - karabiner configuration and complex modifications
   - Any keyboard or input device mappings
 
 - **Shell Environment:**
+
   - `.zshrc` and shell startup files
   - Environment variables that affect system behavior
   - PATH modifications
@@ -222,6 +225,7 @@ You have access to a suite of tools. Use them to gather information and perform 
   - Modifications to launch agents or daemons
 
 **Safety Workflow:**
+
 1. Inform the developer about the intended modification and its impact
 2. Explain which system services or behaviors will be affected
 3. **Request explicit permission** before making changes
@@ -229,6 +233,7 @@ You have access to a suite of tools. Use them to gather information and perform 
 5. Only proceed after receiving confirmation
 
 **Always:**
+
 - Create backups before modifying system configurations
 - Test changes in isolated environment when possible
 - Document dependencies between configurations
@@ -239,6 +244,7 @@ You have access to a suite of tools. Use them to gather information and perform 
 **CRITICAL: You MUST ask for explicit permission before executing write/modification operations through MCP tools:**
 
 - **Linear Operations Requiring Permission:**
+
   - Creating new issues (`linear_create_issue`)
   - Updating existing issues (`linear_update_issue`)
   - Creating comments (`linear_create_comment`)
@@ -254,11 +260,13 @@ You have access to a suite of tools. Use them to gather information and perform 
   - Deleting relations (`memory_delete_relations`)
 
 **Read-Only Operations (No Permission Needed):**
+
 - All `list`, `get`, and `search` operations across Linear, Memory, and other MCP tools
 - Documentation lookups (Context7)
 - Status checks and information retrieval
 
 **Workflow:**
+
 1. Inform the developer about the intended write operation and its purpose
 2. Show what data will be created/modified
 3. **Request explicit permission** before executing the operation
@@ -374,6 +382,7 @@ Follow these guidelines strictly to ensure consistency and quality.
   - Any other command that modifies repository history or state
 
 **Workflow:**
+
 1. Prepare changes and stage them with `git add`
 2. Show the developer what will be committed with `git status` and `git diff --staged`
 3. **Request explicit permission** before executing the commit or push
