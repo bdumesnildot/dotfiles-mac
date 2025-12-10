@@ -28,9 +28,9 @@ source $ZSH/oh-my-zsh.sh
 # ==============================================================================
 #  3. ALIASES
 # ==============================================================================
-alias zshconfig="code ~/.config/zsh/zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias dotfiles="code ~/.dotfiles"
+alias zshconfig="zed -n ~/.config/zsh/zshrc"
+alias ohmyzsh="zed -n ~/.oh-my-zsh"
+alias dotfiles="zed -n ~/.dotfiles"
 alias currentbranch="git branch | grep \* | cut -d ' ' -f2"
 
 # cmd aliases
@@ -104,3 +104,5 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # ==============================================================================
 # Define the default search command for FZF, explicitly excluding OrbStack paths and other temporary/virtual files.
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/OrbStack/*" -not -path "*.git/*" 2>/dev/null'
+# Added by Antigravity
+export PATH="/Users/bdumesnildot/.antigravity/antigravity/bin:$PATH"

@@ -10,6 +10,9 @@
 
 /.config/karabiner/automatic_backups
 
+/.config/zed/conversations
+/.config/zed/prompts
+
 /.warp/themes/
 !/.warp/themes/custom/
 
