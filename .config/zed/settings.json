@@ -1,0 +1,137 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  // -- GENERAL
+  "debugger": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "context_servers": {
+    "mcp-server-linear": {
+      "enabled": true,
+      "settings": {}
+    }
+  },
+  "buffer_font_weight": 400.0,
+  "buffer_line_height": "comfortable",
+  "use_system_path_prompts": true,
+  "git_panel": {
+    "sort_by_path": false
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "icon_theme": "Material Icon Theme",
+  "base_keymap": "VSCode",
+  "autosave": "on_focus_change",
+  "restore_on_startup": "last_session",
+  // -- EDITOR
+  "format_on_save": "on",
+  "soft_wrap": "editor_width",
+  // -- AI
+  "edit_predictions": {
+    "disabled_globs": []
+  },
+  "language_models": {
+    "google": {
+      "available_models": [
+        {
+          "name": "gemini-2.5-flash",
+          "display_name": "Gemini 2.5 Flash",
+          "max_tokens": 1000000,
+          "mode": {
+            "type": "thinking"
+          }
+        }
+      ]
+    }
+  },
+  "agent": {
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "inline_alternatives": [
+      {
+        "provider": "zed.dev",
+        "model": "gpt-4-mini"
+      },
+      {
+        "provider": "zed.dev",
+        "model": "gemini-2.5-flash"
+      }
+    ],
+    "always_allow_tool_actions": false,
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "terminal": true,
+          "batch_tool": true,
+          "code_symbols": true,
+          "copy_path": false,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "symbol_info": true,
+          "thinking": true,
+          "create_directory": true
+        }
+      }
+    }
+  },
+  // -- THEME
+  "theme": "VSCode Dark Modern",
+  "theme_overrides": {
+    "VSCode Dark Modern": {
+      "syntax": {
+        "attribute": {
+          "font_style": "italic"
+        }
+      }
+    }
+  },
+  // -- FONT
+  "buffer_font_family": "Menlo",
+  "show_wrap_guides": false,
+  "terminal": {
+    "dock": "right",
+    "font_family": "GeistMono Nerd Font",
+    "font_size": 14,
+    "blinking": "terminal_controlled",
+    "button": true,
+    "copy_on_select": true
+  },
+  "ui_font_family": ".SystemUIFont",
+  "file_finder": {
+    "file_icons": true,
+    "modal_max_width": "medium"
+  },
+  "ui_font_features": {
+    "calt": true
+  },
+  "ui_font_size": 16.0,
+  "buffer_font_size": 14.0,
+  // -- MISC.
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "line_indicator_format": "long"
+}
