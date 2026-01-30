@@ -1,0 +1,41 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "permission": {
+    "*": "allow",
+    "external_directory": "allow",
+    "doom_loop": "ask"
+  },
+  // "model": "google/gemini-3-flash-preview",
+  "model": "github-copilot/claude-opus-4.5"
+  "agent": {
+    "plan": {
+      // "model": "google/gemini-3-pro-preview"
+      "model": "github-copilot/claude-opus-4.5"
+    },
+    "build": {
+      "model": "github-copilot/claude-sonnet-4.5"
+    }
+  },
+  "mcp": {
+    "linear": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/sse"]
+    },
+    "context7": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp@latest"]
+    },
+    "figma": {
+      "enabled": false,
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/sse"
+    }
+  },
+  "keybinds": {
+    "leader": "ctrl+l"
+  },
+  "theme": "github"
+}
