@@ -71,7 +71,9 @@ After each response:
 Create a Linear project using MCP with:
 
 - **Name:** Feature name (e.g., "Dark Mode for Admin TUI")
-- **Team:** Benoit (team id: BEN)
+- **Team:** Attach to team Benoit (id: a6de754c-c383-4138-9fbb-3ca0886c6ffc), DO NOT attach to team Pragma web (id: 5b263ca9-9797-463c-900e-2b2a13206971)
+- **Status:** Planned
+- **Members:** benoit
 - **Description:** Full PRD content (see structure below)
 
 ### Project Description Structure
@@ -126,18 +128,16 @@ Term definitions if needed.
 
 For each task, create a Linear issue:
 
-- **Team:** Benoit (BEN)
+- **Team:** Attach to team Benoit (id: a6de754c-c383-4138-9fbb-3ca0886c6ffc), DO NOT attach to team Pragma web (id: 5b263ca9-9797-463c-900e-2b2a13206971)
 - **Project:** Newly created project
 - **Status:** Backlog
 - **Priority:** Based on task importance and order
 - **Labels:** Apply relevant labels
-- **blockedBy:** Link dependencies using Linear's blockedBy feature
+- **blockedBy:** Link dependencies using Linear's blockedBy feature if relevant
 
 ### Issue Structure
 
 ```markdown
-# [Task Title]
-
 [User story: As a [user], I want [feature] so that [benefit].]
 
 ## Acceptance Criteria
