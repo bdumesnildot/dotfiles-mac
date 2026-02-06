@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/bdumesnildot/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # ==============================================================================
 #  1. POWERLEVEL10K INSTANT PROMPT
 # ==============================================================================
@@ -25,13 +32,21 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 # ==============================================================================
-#  3. ALIASES
+#  3. FUNCTIONS
+# ==============================================================================
+# Create and change directory
+mkcd () {
+  mkdir -p "$@" && cd "${@:$#}"
+}
+
+# ==============================================================================
+#  4. ALIASES
 # ==============================================================================
 alias zshconfig="zed -n ~/.config/zsh/zshrc"
 alias ohmyzsh="zed -n ~/.oh-my-zsh"
 alias dotfiles="zed -n ~/.dotfiles"
-alias currentbranch="git branch | grep \* | cut -d ' ' -f2"
 
 # cmd aliases
 alias ls='lsd'
@@ -45,12 +60,12 @@ alias cdcf='cd ~/.config'
 
 alias tmuxpop='~/.config/tmux/launch/launch_popina_web.sh'
 
-## Fonction pour créer un dossier et y naviguer
-mkcd () {
-  mkdir -p "$@" && cd "${@:$#}"
-}
-
 alias ccc='clear'
+
+# git aliases
+alias currentbranch="git_current_branch"
+alias gploc='git pull origin $(currentbranch)'
+alias gplom='git pull origin main'
 
 # utils aliases
 alias lg="lazygit"
@@ -70,8 +85,11 @@ alias pnda='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/
 
 alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync  --filter @pragma/api-customer --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop --filter @pragma/api'
 
+# script call aliases
+alias ralph-linear='~/.dotfiles/.config/opencode/ralph/ralph-linear.sh'
+
 # ==============================================================================
-#  4. PATH & ENVIRONMENT SETUP
+#  5. PATH & ENVIRONMENT SETUP
 # ==============================================================================
 # Add VsCode as editor
 export EDITOR="micro"
@@ -100,7 +118,7 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 
 # ==============================================================================
-#  5. FZF CONFIGURATION
+#  6. FZF CONFIGURATION
 # ==============================================================================
 # Define the default search command for FZF, explicitly excluding OrbStack paths and other temporary/virtual files.
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/OrbStack/*" -not -path "*.git/*" 2>/dev/null'
