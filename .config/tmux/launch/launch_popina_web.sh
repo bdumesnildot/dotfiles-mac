@@ -26,23 +26,23 @@ tmux send-keys -t "$SESSION_NAME:home" "cd ~ && clear" C-m
 # 2. Creation of Subsequent Windows (Starting from index 1)
 # ----------------------------------------------------
 
-# Window 1: .dotFiles (Created at the next available index, likely 1)
-tmux new-window -t "$SESSION_NAME":2 -n ".dotFiles"
-tmux send-keys -t "$SESSION_NAME":2 "cd ~/.dotfiles && clear" C-m
-
-# Window 2: pragma-project-MAIN
-tmux new-window -t "$SESSION_NAME":3 -n "pragma-project-MAIN"
-tmux send-keys -t "$SESSION_NAME":3 "cd ~/dev/pragma-project-main && clear" C-m
+# Window 2: pragma-project-MAIN (Created at the next available index, likely 1)
+tmux new-window -t "$SESSION_NAME":2 -n "pragma-project-MAIN"
+tmux send-keys -t "$SESSION_NAME":2 "cd ~/dev/pragma-project-main && clear" C-m
 
 # Window 3: pragma-project-REVIEW
-tmux new-window -t "$SESSION_NAME":4 -n "pragma-project-REVIEW"
-tmux send-keys -t "$SESSION_NAME":4 "cd ~/dev/pragma-project-review && clear" C-m
+tmux new-window -t "$SESSION_NAME":3 -n "pragma-project-REVIEW"
+tmux send-keys -t "$SESSION_NAME":3 "cd ~/dev/pragma-project-review && clear" C-m
 
-# Window 4: pragma-project-AGENT
-tmux new-window -t "$SESSION_NAME":5 -n "pragma-project-AGENT"
-tmux send-keys -t "$SESSION_NAME":5 "cd ~/dev/pragma-project-agent && clear" C-m
+# Window 4: pragma-project-AGENT-1
+tmux new-window -t "$SESSION_NAME":4 -n "pragma-project-AGENT-1"
+tmux send-keys -t "$SESSION_NAME":4 "cd ~/dev/pragma-project-agent-1 && clear" C-m
 
-# Window 5: pragma-project-DEV (The one that needs to be active)
+# Window 5: pragma-project-AGENT-2
+tmux new-window -t "$SESSION_NAME":5 -n "pragma-project-AGENT-2"
+tmux send-keys -t "$SESSION_NAME":5 "cd ~/dev/pragma-project-agent-2 && clear" C-m
+
+# Window 6: pragma-project-DEV (The one that needs to be active)
 tmux new-window -t "$SESSION_NAME":6 -n "pragma-project-DEV"
 tmux send-keys -t "$SESSION_NAME":6 "cd ~/dev/pragma-project && clear" C-m
 
@@ -50,7 +50,7 @@ tmux send-keys -t "$SESSION_NAME":6 "cd ~/dev/pragma-project && clear" C-m
 # 3. Finalization and Attachment
 # ----------------------------------------------------
 
-# Selects the "pragma-project-DEV" window (index 5) to be active
+# Selects the "pragma-project-DEV" window to be active
 tmux select-window -t "$SESSION_NAME":6
 
 # Attaches the session to the terminal
