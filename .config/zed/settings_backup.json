@@ -10,7 +10,6 @@
   // -- GENERAL
   "code_actions_on_format": {
     "source.fixAll.eslint": true,
-    "source.organizeImports": true,
     "source.addMissingImports.ts": true,
     "source.removeUnusedImports": true,
   },

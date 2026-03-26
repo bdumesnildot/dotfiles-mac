@@ -8,20 +8,20 @@
 [
   {
     "context": "Editor",
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "Workspace",
 
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-    }
+    },
   },
   {
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
-    }
+    },
   },
   {
     "context": "Editor",
@@ -29,9 +29,27 @@
       "cmd-/": [
         "editor::ToggleComments",
         {
-          "advance_downwards": false
-        }
-      ]
-    }
-  }
+          "advance_downwards": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-k cmd-k": "editor::FoldAll",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-k cmd-h": "editor::FoldAll",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-k cmd-h": "editor::FoldAll",
+    },
+  },
 ]
