@@ -7,21 +7,22 @@
     "doom_loop": "ask",
   },
   // "model": "google/gemini-3-flash-preview",
-  "model": "github-copilot/claude-opus-4.5",
+  "model": "opencode/mimo-v2-pro-free",
   "agent": {
     "plan": {
-      // "model": "google/gemini-3-pro-preview"
-      "model": "github-copilot/claude-opus-4.5",
+      // "model": "github-copilot/claude-opus-4.6",
+      "model": "opencode/mimo-v2-pro-free",
     },
     "build": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      // "model": "github-copilot/claude-sonnet-4.6",
+      "model": "opencode/mimo-v2-omni-free",
     },
   },
   "mcp": {
     "linear": {
       "enabled": false,
       "type": "local",
-      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/sse"],
+      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/mcp"],
     },
     "context7": {
       "enabled": false,
@@ -34,8 +35,4 @@
       "url": "http://127.0.0.1:3845/sse",
     },
   },
-  "keybinds": {
-    "leader": "ctrl+l",
-  },
-  "theme": "github",
 }

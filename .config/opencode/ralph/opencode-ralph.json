@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "allow",
+    "external_directory": "deny",
+    "doom_loop": "deny"
+  },
+  "mcp": {
+    "linear": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/sse"]
+    }
+  }
+}
