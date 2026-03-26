@@ -1,12 +1,5 @@
-# OPENSPEC:START
-# OpenSpec shell completions configuration
-fpath=("/Users/bdumesnildot/.oh-my-zsh/custom/completions" $fpath)
-autoload -Uz compinit
-compinit
-# OPENSPEC:END
-
 # ==============================================================================
-#  1. POWERLEVEL10K INSTANT PROMPT
+#  POWERLEVEL10K INSTANT PROMPT
 # ==============================================================================
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -14,7 +7,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # ==============================================================================
-#  2. OH MY ZSH CONFIGURATION
+#  HOMEBREW
+# ==============================================================================
+# Set Homebrew environment variables
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# ==============================================================================
+#  OH MY ZSH CONFIGURATION
 # ==============================================================================
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -34,7 +33,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # ==============================================================================
-#  3. FUNCTIONS
+#  FUNCTIONS
 # ==============================================================================
 # Create and change directory
 mkcd () {
@@ -42,7 +41,7 @@ mkcd () {
 }
 
 # ==============================================================================
-#  4. ALIASES
+#  ALIASES
 # ==============================================================================
 alias zshconfig="zed -n ~/.config/zsh/zshrc"
 alias ohmyzsh="zed -n ~/.oh-my-zsh"
@@ -58,7 +57,10 @@ alias cdpp='cd ~/dev/pragma-project'
 alias cddw='cd ~/Downloads'
 alias cdcf='cd ~/.config'
 
-alias tmuxpop='~/.config/tmux/launch/launch_popina_web.sh'
+alias tmpop='~/.config/tmux/launch/launch_popina_web.sh'
+alias tmls='tmux ls'
+alias tmkill='tmux kill-session'
+alias tmdetach='tmux detach-session'
 
 alias ccc='clear'
 
@@ -66,6 +68,7 @@ alias ccc='clear'
 alias currentbranch="git_current_branch"
 alias gploc='git pull origin $(currentbranch)'
 alias gplom='git pull origin main'
+alias gcm='git commit -m'
 
 # utils aliases
 alias lg="lazygit"
@@ -85,17 +88,19 @@ alias pnda='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/
 
 alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync  --filter @pragma/api-customer --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop --filter @pragma/api'
 
-# script call aliases
+# zed aliases
+alias z='zed'
+alias zn='zed -n .'
+
+# opencode aliases
+alias oc='opencode'
 alias ralph-linear='~/.dotfiles/.config/opencode/ralph/ralph-linear.sh'
 
 # ==============================================================================
-#  5. PATH & ENVIRONMENT SETUP
+#  PATH & ENVIRONMENT SETUP
 # ==============================================================================
 # Add VsCode as editor
 export EDITOR="micro"
-
-# Homebrew (méthode officielle, déplacée depuis .zprofile)
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # pnpm
 export PNPM_HOME="/Users/bdumesnildot/Library/pnpm"
@@ -103,6 +108,9 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# Obsidian
+alias obsidian='/Applications/Obsidian.app/Contents/MacOS/Obsidian'
 
 # OrbStack
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
@@ -118,9 +126,7 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 
 # ==============================================================================
-#  6. FZF CONFIGURATION
+#  FZF CONFIGURATION
 # ==============================================================================
 # Define the default search command for FZF, explicitly excluding OrbStack paths and other temporary/virtual files.
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/OrbStack/*" -not -path "*.git/*" 2>/dev/null'
-# Added by Antigravity
-export PATH="/Users/bdumesnildot/.antigravity/antigravity/bin:$PATH"
