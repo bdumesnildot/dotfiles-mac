@@ -1,7 +1,8 @@
 # Ghostty Configuration File
 
 shell-integration = zsh
-# command = ~/.config/tmux/launch/launch_popina_web.sh
+#command = /bin/zsh --login
+command = /bin/zsh --login -c "echo 'open tmux popina session' && ~/.config/tmux/launch/launch_popina_web.sh && exec /bin/zsh"
 
 copy-on-select = true
 clipboard-read = allow
