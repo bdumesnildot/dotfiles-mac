@@ -14,20 +14,27 @@
     "source.addMissingImports.ts": true,
     "source.removeUnusedImports": true,
   },
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
   "debugger": {
     "dock": "left",
   },
   "collaboration_panel": {
     "dock": "right",
   },
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true,
+    "sort_by_path": false,
+  },
   "context_servers": {},
   "buffer_font_weight": 400.0,
   "buffer_line_height": "comfortable",
   "use_system_path_prompts": true,
-  "git_panel": {
-    "tree_view": true,
-    "sort_by_path": false,
-  },
   "tabs": {
     "file_icons": true,
     "git_status": true,
@@ -35,9 +42,9 @@
   },
   "icon_theme": "Material Icon Theme",
   "base_keymap": "VSCode",
-  "autosave": "on_focus_change",
   "restore_on_startup": "last_session",
   // -- EDITOR
+  "autosave": "on_focus_change",
   "format_on_save": "on",
   "soft_wrap": "editor_width",
   "colorize_brackets": true,
@@ -121,23 +128,46 @@
   },
   "language_models": {},
   "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
     "favorite_models": [
       {
         "provider": "copilot_chat",
         "model": "claude-sonnet-4.5",
+        "enable_thinking": false
       },
       {
         "provider": "google",
         "model": "gemini-3-pro-preview",
+        "enable_thinking": false
       },
       {
         "provider": "google",
-        "model": "gemini-3-flash-preview",
+        "model": "gemini-3.5-flash",
+        "enable_thinking": true,
+        "effort": "medium"
+      },
+      {
+        "provider": "google",
+        "model": "gemini-3.1-pro-preview",
+        "enable_thinking": true,
+        "effort": "high"
       },
       {
         "provider": "copilot_chat",
-        "model": "claude-opus-4.6",
+        "model": "claude-opus-4.5",
+        "enable_thinking": true
       },
+      {
+        "provider": "opencode",
+        "model": "free/big-pickle",
+        "enable_thinking": false
+      },
+      {
+        "provider": "opencode",
+        "model": "zen/kimi-k2.5",
+        "enable_thinking": false
+      }
     ],
     "default_model": {
       "provider": "google",
@@ -186,9 +216,6 @@
       "host": "heliumlab",
       "args": [],
       "projects": [
-        {
-          "paths": ["/home/bdm/dev"],
-        },
         {
           "paths": ["/home/bdm/server"],
         },
