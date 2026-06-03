@@ -26,6 +26,12 @@ fi
 echo "✅ Linear MCP is connected. proceeding..."
 
 # Main loop
+# models:
+# - opencode/kimi-k2.5
+# - github-copilot/claude-sonnet-4.5
+# - opencode/gemini-3.5-flash
+# - opencode/gemini-3.1-pro
+
 for ((i = 1; i <= MAX_ITER; i++)); do
 	[ -f .ralph-done ] && echo "✅ Done." && exit 0
 	echo "🔄 Iteration $i"
