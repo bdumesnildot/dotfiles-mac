@@ -6,16 +6,15 @@
     "external_directory": "allow",
     "doom_loop": "ask",
   },
-  // "model": "google/gemini-3-flash-preview",
-  "model": "opencode/mimo-v2-pro-free",
+  "model": "opencode/gemini-3.5-flash",
   "agent": {
     "plan": {
-      // "model": "github-copilot/claude-opus-4.6",
-      "model": "opencode/mimo-v2-pro-free",
+      "model": "opencode/gemini-3.1-pro",
+      // "model": "opencode/gemini-3.5-flash",
     },
     "build": {
-      // "model": "github-copilot/claude-sonnet-4.6",
-      "model": "opencode/mimo-v2-omni-free",
+      "model": "github-copilot/claude-sonnet-4.5",
+      // "model": "opencode/kimi-k2.5",
     },
   },
   "mcp": {
@@ -34,5 +33,13 @@
       "type": "remote",
       "url": "http://127.0.0.1:3845/sse",
     },
+    // "n8n-helium": {
+    //   "enabled": false,
+    //   "type": "remote",
+    //   "url": "{file:./.secrets/N8N_HELIUM_MCP_SERVER_URL}",
+    //   "headers": {
+    //     "Authorization": "{file:./.secrets/N8N_HELIUM_MCP_BEARER_TOKEN}",
+    //   },
+    // },
   },
 }
