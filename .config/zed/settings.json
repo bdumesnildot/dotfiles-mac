@@ -8,6 +8,11 @@
 // from the command palette or from `Zed` application menu.
 {
   // -- GENERAL
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    }
+  },
   "code_actions_on_format": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true,
