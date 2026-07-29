@@ -10,8 +10,8 @@
   // -- GENERAL
   "agent_servers": {
     "opencode": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "code_actions_on_format": {
     "source.fixAll.eslint": true,
@@ -32,9 +32,9 @@
     "dock": "right",
   },
   "git_panel": {
+    "group_by": "none",
     "dock": "left",
     "tree_view": true,
-    "sort_by_path": false,
   },
   "context_servers": {},
   "buffer_font_weight": 400.0,
@@ -55,6 +55,28 @@
   "colorize_brackets": true,
   "languages": {
     "TypeScript": {
+      "language_servers": [
+        "vtsls",
+        "!tsgo",
+        "!typescript-language-server",
+        "!typescript-ls",
+        "!eslint",
+        "...",
+      ],
+      "code_actions_on_format": {
+        "source.addMissingImports.ts": true,
+        "source.fixAll.eslint": true,
+      },
+    },
+    "TSX": {
+      "language_servers": [
+        "vtsls",
+        "!tsgo",
+        "!typescript-language-server",
+        "!typescript-ls",
+        "!eslint",
+        "...",
+      ],
       "code_actions_on_format": {
         "source.addMissingImports.ts": true,
         "source.fixAll.eslint": true,
@@ -62,10 +84,13 @@
     },
   },
   "inlay_hints": {
-    "enabled": true,
+    "enabled": false,
   },
   // -- LSP
   "lsp": {
+    "tsgo": {
+      "settings": {},
+    },
     "vtsls": {
       "settings": {
         "typescript": {
@@ -128,7 +153,7 @@
   },
   // -- AI
   "edit_predictions": {
-    "provider": "copilot",
+    "provider": "codestral",
     "disabled_globs": [],
   },
   "language_models": {},
@@ -139,40 +164,40 @@
       {
         "provider": "copilot_chat",
         "model": "claude-sonnet-4.5",
-        "enable_thinking": false
+        "enable_thinking": false,
       },
       {
         "provider": "google",
         "model": "gemini-3-pro-preview",
-        "enable_thinking": false
+        "enable_thinking": false,
       },
       {
         "provider": "google",
         "model": "gemini-3.5-flash",
         "enable_thinking": true,
-        "effort": "medium"
+        "effort": "medium",
       },
       {
         "provider": "google",
         "model": "gemini-3.1-pro-preview",
         "enable_thinking": true,
-        "effort": "high"
+        "effort": "high",
       },
       {
         "provider": "copilot_chat",
         "model": "claude-opus-4.5",
-        "enable_thinking": true
+        "enable_thinking": true,
       },
       {
         "provider": "opencode",
         "model": "free/big-pickle",
-        "enable_thinking": false
+        "enable_thinking": false,
       },
       {
         "provider": "opencode",
         "model": "zen/kimi-k2.5",
-        "enable_thinking": false
-      }
+        "enable_thinking": false,
+      },
     ],
     "default_model": {
       "provider": "google",
@@ -188,7 +213,6 @@
         "model": "gemini-2.5-flash",
       },
     ],
-    "always_allow_tool_actions": false,
     "profiles": {
       "write": {
         "name": "Write",
@@ -221,6 +245,9 @@
       "host": "heliumlab",
       "args": [],
       "projects": [
+        {
+          "paths": ["/home/bdm"],
+        },
         {
           "paths": ["/home/bdm/server"],
         },
