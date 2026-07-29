@@ -1890,3 +1890,8 @@
 2026-07-29T08:15:41.983067Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w2" tab_id="w2:t2"
 2026-07-29T08:15:47.019870Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/Users/bdumesnildot/.config/herdr/session.json workspaces=6
 2026-07-29T08:15:56.256009Z  INFO herdr::pane: agent changed pane=10 previous_agent=Some(OpenCode) agent=None pgid=Some(57968)
+2026-07-29T08:32:58.912782Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w2"
+2026-07-29T08:32:58.914892Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w2" tab_id="w2:t2"
+2026-07-29T08:33:03.116083Z  INFO herdr::pane: agent changed pane=10 previous_agent=None agent=Some(OpenCode) process=opencode pgid=Some(71185)
+2026-07-29T08:33:03.948033Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/Users/bdumesnildot/.config/herdr/session.json workspaces=6
+2026-07-29T08:33:17.380357Z  INFO herdr::pane: agent changed pane=10 previous_agent=Some(OpenCode) agent=None pgid=Some(57968)

@@ -56,10 +56,9 @@
   "languages": {
     "TypeScript": {
       "language_servers": [
-        "vtsls",
-        "!tsgo",
+        "typescript-ls",
+        "!vtsls",
         "!typescript-language-server",
-        "!typescript-ls",
         "!eslint",
         "...",
       ],
@@ -70,10 +69,9 @@
     },
     "TSX": {
       "language_servers": [
-        "vtsls",
-        "!tsgo",
+        "typescript-ls",
+        "!vtsls",
         "!typescript-language-server",
-        "!typescript-ls",
         "!eslint",
         "...",
       ],
@@ -88,7 +86,7 @@
   },
   // -- LSP
   "lsp": {
-    "tsgo": {
+    "typescript-ls": {
       "settings": {},
     },
     "vtsls": {
