@@ -35,7 +35,7 @@ echo "✅ Linear MCP is connected. proceeding..."
 for ((i = 1; i <= MAX_ITER; i++)); do
 	[ -f .ralph-done ] && echo "✅ Done." && exit 0
 	echo "🔄 Iteration $i"
-	opencode run -m github-copilot/claude-sonnet-4.6 "
+	opencode run -m github-copilot/claude-sonnet-5 "
 Use Linear MCP to fetch project $PROJECT_NAME: description, issues, and Progress document related to the project.
 Pick ONE incomplete issue (YOU HAVE TO CHOOSE ONLY ONE). Use priority and dependencies (Linear blockedBy) to decide.
 Complete it. Run feedback loops (types, tests, lint).

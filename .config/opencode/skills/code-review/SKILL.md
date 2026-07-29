@@ -5,6 +5,12 @@ description: Automated code review for pull requests using specialized review pa
 
 # Code Review
 
+## Workflow
+
+### 1. Review Execution
+
+Output the standard Markdown review format (see below).
+
 ## Review Categories
 
 ### 1. Security Review
@@ -63,16 +69,19 @@ Check for:
 - **[File:Line]** [Issue description]
   - **Why:** [Explanation]
   - **Fix:** [Suggested fix]
+  - **Suggested review comment:** [Simple, concise and friendly comment to leave on PR. (we all work in the same room, no need to be formal)]
 
 ### 🟡 Suggestions (Should Consider)
 
 - **[File:Line]** [Issue description]
   - **Why:** [Explanation]
   - **Fix:** [Suggested fix]
+  - **Suggested review comment:** [Simple, concise and friendly comment to leave on PR. (we all work in the same room, no need to be formal)]
 
 ### 🟢 Nits (Optional)
 
 - **[File:Line]** [Minor suggestion]
+- **Suggested review comment:** [Simple, concise and friendly comment to leave on PR. (we all work in the same room, no need to be formal)]
 
 ### ✅ What's Good
 

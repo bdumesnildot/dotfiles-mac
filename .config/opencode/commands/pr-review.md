@@ -1,7 +1,7 @@
 ---
 description: PR Review
 agent: plan
-model: github-copilot/claude-sonnet-4.5
+model: opencode/gemini-3.1-propr
 ---
 
 Review the current branch as a pull request to origin/main branch. Use skill `code-review`.
