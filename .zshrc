@@ -51,6 +51,9 @@ alias dotfiles="zed -n ~/.dotfiles"
 alias ls='lsd'
 alias ll='lsd -lh'
 alias lla='lsd -lhA'
+alias cat='bat'
+alias grep='rg'
+alias man='tldr'
 
 alias cdd='cd ~/dev/'
 alias cdpp='cd ~/dev/pragma-project'
@@ -99,8 +102,9 @@ alias ralph-linear='~/.dotfiles/.config/opencode/ralph/ralph-linear.sh'
 # ==============================================================================
 #  PATH & ENVIRONMENT SETUP
 # ==============================================================================
-# Add VsCode as editor
+# Editor
 export EDITOR="micro"
+#export EDITOR="zed --wait"
 
 # pnpm
 export PNPM_HOME="/Users/bdumesnildot/Library/pnpm"
@@ -112,8 +116,8 @@ esac
 # Obsidian
 alias obsidian='/Applications/Obsidian.app/Contents/MacOS/Obsidian'
 
-# OrbStack
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+# Dory (Docker Engine)
+export DOCKER_HOST="unix://$HOME/.dory/dory.sock"
 
 # deno
 export PATH="/Users/bdumesnildot/.deno/bin:$PATH"
@@ -128,5 +132,5 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # ==============================================================================
 #  FZF CONFIGURATION
 # ==============================================================================
-# Define the default search command for FZF, explicitly excluding OrbStack paths and other temporary/virtual files.
-export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/OrbStack/*" -not -path "*.git/*" 2>/dev/null'
+# Define the default search command for FZF, explicitly excluding temporary/virtual files.
+export FZF_DEFAULT_COMMAND='find . -type f -not -path "*.git/*" 2>/dev/null'
