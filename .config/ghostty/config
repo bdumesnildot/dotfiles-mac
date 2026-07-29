@@ -1,8 +1,9 @@
 # Ghostty Configuration File
 
 shell-integration = zsh
-#command = /bin/zsh --login
-command = /bin/zsh --login -c "echo 'open tmux popina session' && ~/.config/tmux/launch/launch_popina_web.sh && exec /bin/zsh"
+command = /bin/zsh --login -c /opt/homebrew/bin/herdr
+#tmux config
+#command = /bin/zsh --login -c "echo 'open tmux popina session' && ~/.config/tmux/launch/launch_popina_web.sh && exec /bin/zsh"
 
 copy-on-select = true
 clipboard-read = allow
@@ -22,3 +23,4 @@ background-blur = 50
 
 # Keybindings
 keybind = shift+enter=text:\x1b\r
+keybind = alt+backspace=text:\x1b\x7f

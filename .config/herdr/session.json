@@ -1,0 +1,267 @@
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "w1",
+      "custom_name": "🟢 pragma-DEV",
+      "identity_cwd": "/Users/bdumesnildot/dev/pragma-project",
+      "worktree_space": {
+        "key": "/Users/bdumesnildot/dev/pragma-project/.git",
+        "label": "pragma-project",
+        "repo_root": "/Users/bdumesnildot/dev/pragma-project",
+        "checkout_path": "/Users/bdumesnildot/dev/pragma-project",
+        "is_linked_worktree": false
+      },
+      "public_pane_numbers": {
+        "1": 2,
+        "2": 3
+      },
+      "next_public_pane_number": 12,
+      "public_tab_numbers": [
+        2,
+        3
+      ],
+      "next_public_tab_number": 8,
+      "tabs": [
+        {
+          "custom_name": "🏡",
+          "layout": {
+            "Pane": 1
+          },
+          "panes": {
+            "1": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project"
+            }
+          },
+          "zoomed": false,
+          "focused": 1,
+          "root_pane": 1
+        },
+        {
+          "custom_name": "🤖",
+          "layout": {
+            "Pane": 2
+          },
+          "panes": {
+            "2": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project"
+            }
+          },
+          "zoomed": false,
+          "focused": 2,
+          "root_pane": 2
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w6",
+      "custom_name": "🟣 pragma-AGENT-1",
+      "identity_cwd": "/Users/bdumesnildot/dev/pragma-project-agent-1",
+      "public_pane_numbers": {
+        "3": 1,
+        "4": 2
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 3
+          },
+          "panes": {
+            "3": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-agent-1"
+            }
+          },
+          "zoomed": false,
+          "focused": 3,
+          "root_pane": 3
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 4
+          },
+          "panes": {
+            "4": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-agent-1"
+            }
+          },
+          "zoomed": false,
+          "focused": 4,
+          "root_pane": 4
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w7",
+      "custom_name": "🔵 pragma-AGENT-2",
+      "identity_cwd": "/Users/bdumesnildot/dev/pragma-project-agent-2",
+      "public_pane_numbers": {
+        "5": 2
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 5
+          },
+          "panes": {
+            "5": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-agent-2"
+            }
+          },
+          "zoomed": false,
+          "focused": 5,
+          "root_pane": 5
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w2",
+      "custom_name": "🟡 pragma-REVIEW",
+      "identity_cwd": "/Users/bdumesnildot/dev/pragma-project-review",
+      "public_pane_numbers": {
+        "10": 2,
+        "6": 1
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 6
+          },
+          "panes": {
+            "6": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-review"
+            }
+          },
+          "zoomed": false,
+          "focused": 6,
+          "root_pane": 6
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 10
+          },
+          "panes": {
+            "10": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-review"
+            }
+          },
+          "zoomed": false,
+          "focused": 10,
+          "root_pane": 10
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w9",
+      "custom_name": "🔴 pragma-DEPLOYED",
+      "identity_cwd": "/Users/bdumesnildot/dev/pragma-project-deployed",
+      "public_pane_numbers": {
+        "8": 2,
+        "7": 1
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 7
+          },
+          "panes": {
+            "7": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-deployed"
+            }
+          },
+          "zoomed": false,
+          "focused": 7,
+          "root_pane": 7
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 8
+          },
+          "panes": {
+            "8": {
+              "cwd": "/Users/bdumesnildot/dev/pragma-project-deployed"
+            }
+          },
+          "zoomed": false,
+          "focused": 8,
+          "root_pane": 8
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "wA",
+      "custom_name": "⚙️ dotfiles",
+      "identity_cwd": "/Users/bdumesnildot/.dotfiles",
+      "public_pane_numbers": {
+        "9": 4
+      },
+      "next_public_pane_number": 5,
+      "public_tab_numbers": [
+        4
+      ],
+      "next_public_tab_number": 5,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 9
+          },
+          "panes": {
+            "9": {
+              "cwd": "/Users/bdumesnildot/.dotfiles",
+              "agent_session": {
+                "source": "herdr:opencode",
+                "agent": "opencode",
+                "kind": "id",
+                "value": "ses_05310c325ffecRvAdEgP2KOfay"
+              }
+            }
+          },
+          "zoomed": false,
+          "focused": 9,
+          "root_pane": 9
+        }
+      ],
+      "active_tab": 0
+    }
+  ],
+  "active": 3,
+  "selected": 3,
+  "sidebar_width": 26,
+  "sidebar_section_split": 0.509434,
+  "collapsed_space_keys": []
+}
