@@ -91,6 +91,11 @@ alias pnda='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/
 
 alias pndf='pnpm dev --log-order=stream --filter @pragma/admin --filter @pragma/api --filter @pragma/api-pos --filter @pragma/api-sync  --filter @pragma/api-customer --filter @pragma/auth-pos --filter @pragma/auth-proxy --filter @pragma/backoffice --filter @pragma/workshop --filter @pragma/api'
 
+# popina cli aliases
+alias pod='popina dev'
+
+alias poep='popina env pull'
+
 # zed aliases
 alias z='zed'
 alias zn='zed -n .'
@@ -106,6 +111,9 @@ alias ralph-linear='~/.dotfiles/.config/opencode/ralph/ralph-linear.sh'
 export EDITOR="micro"
 #export EDITOR="zed --wait"
 
+# Local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 # pnpm
 export PNPM_HOME="/Users/bdumesnildot/Library/pnpm"
 case ":$PATH:" in
@@ -116,14 +124,17 @@ esac
 # Obsidian
 alias obsidian='/Applications/Obsidian.app/Contents/MacOS/Obsidian'
 
-# Dory (Docker Engine)
-export DOCKER_HOST="unix://$HOME/.dory/dory.sock"
+# OrbStack (Docker Engine)
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # deno
 export PATH="/Users/bdumesnildot/.deno/bin:$PATH"
 
 # opencode
 export PATH="/Users/bdumesnildot/.opencode/bin:$PATH"
+
+# claude code
+export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
 
 # fnm node version manager (alway last)
 eval "$(fnm env --use-on-cd --shell zsh)"

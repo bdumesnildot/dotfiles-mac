@@ -1,22 +1,44 @@
-**/extensions
+# -----------------------------------
+# GENERAL
+# -----------------------------------
+.old
+.bak
+.DS_Store
 **/debug
 
+# -----------------------------------
+# SECRETS
+# -----------------------------------
 .env
 .secrets
-
 .ssh
 
-.vscode/
 
-.old
+# -----------------------------------
+# APPS
+# -----------------------------------
 
+# CLAUDE
+/.config/claude/*
+!/.config/claude/CLAUDE.md
+!/.config/claude/settings.json
+!/.config/claude/policy-limits.json
+!/.config/claude/skills/
+
+
+# KARABINER
 /.config/karabiner/automatic_backups
 
-/.config/zed/conversations
-/.config/zed/prompts
 
+# VS CODE
+.vscode/
+
+
+# WARP
 /.warp/themes/*
 !/.warp/themes/custom/
 
-.bak
-.DS_Store
+
+# ZED
+/.config/zed/conversations
+/.config/zed/prompts
