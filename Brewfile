@@ -54,8 +54,8 @@ brew "onefetch"
 # -----------------------------------
 # BREWS - Package managers
 # -----------------------------------
-# Fast, disk space efficient package manager
-brew "pnpm"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 
 # -----------------------------------
 # BREWS - Containers & databases

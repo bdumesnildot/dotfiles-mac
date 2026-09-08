@@ -20,7 +20,12 @@ Personal macOS configuration files managed with [GNU Stow](https://www.gnu.org/s
    brew bundle install --file=Brewfile
    ```
 
-4. Deploy configurations:
+4. Install runtime versions with mise:
+   ```bash
+   mise install
+   ```
+
+5. Deploy configurations:
    ```bash
    stow .
    ```
@@ -72,3 +77,18 @@ brew bundle dump --file=Brewfile --force
 ```
 
 After running `brew bundle dump`, review the diff and manually re-categorize/clean up any new entries before committing.
+
+## Runtime versions (mise)
+
+[mise](https://mise.jdx.dev/) manages language runtime versions (Node, etc.) declared in `.config/mise/config.toml`.
+
+```bash
+# Install all tools/versions declared in config.toml
+mise install
+
+# Show currently active tools
+mise ls
+
+# Add or update a tool version
+mise use -g node@lts
+```

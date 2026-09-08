@@ -136,8 +136,8 @@ export PATH="/Users/bdumesnildot/.opencode/bin:$PATH"
 # claude code
 export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
 
-# fnm node version manager (alway last)
-eval "$(fnm env --use-on-cd --shell zsh)"
+# mise polyglot runtime manager (always last)
+eval "$(mise activate zsh)"
 
 
 # ==============================================================================
