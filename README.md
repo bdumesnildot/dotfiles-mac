@@ -4,9 +4,9 @@ Personal macOS configuration files managed with [GNU Stow](https://www.gnu.org/s
 
 ## Setup
 
-1. Install Stow:
+1. Install Homebrew (if not already installed):
    ```bash
-   brew install stow
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
 2. Clone this repository:
@@ -15,7 +15,12 @@ Personal macOS configuration files managed with [GNU Stow](https://www.gnu.org/s
    cd ~/.dotfiles
    ```
 
-3. Deploy configurations:
+3. Install all packages from the Brewfile:
+   ```bash
+   brew bundle install --file=Brewfile
+   ```
+
+4. Deploy configurations:
    ```bash
    stow .
    ```
@@ -50,3 +55,20 @@ stow --adopt .
 3. Commit changes
 
 Changes to files are reflected immediately via symlinks.
+
+## Brewfile
+
+`Brewfile` tracks all Homebrew formulas and casks, grouped by category, so a new machine can be provisioned with a single command.
+
+```bash
+# Install everything listed in the Brewfile
+brew bundle install --file=Brewfile
+
+# Check what's missing/outdated without installing
+brew bundle check --file=Brewfile
+
+# Update the Brewfile with your currently installed packages
+brew bundle dump --file=Brewfile --force
+```
+
+After running `brew bundle dump`, review the diff and manually re-categorize/clean up any new entries before committing.
