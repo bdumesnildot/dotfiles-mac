@@ -1,6 +1,18 @@
 # 🍎 macOS Dotfiles
 
-Personal macOS configuration files managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Personal macOS configuration files managed with [GNU Stow](https://www.gnu.org/software/stow/), organized using the **packages pattern**: every top-level directory in this repo is a self-contained stow package that mirrors its target path under `$HOME`.
+
+```
+.dotfiles/
+  claude/.config/claude/...      -> ~/.config/claude/...
+  ghostty/.config/ghostty/...    -> ~/.config/ghostty/...
+  mise/.config/mise/config.toml  -> ~/.config/mise/config.toml
+  ssh/.ssh/...                   -> ~/.ssh/...
+  zsh/.zshrc                     -> ~/.zshrc
+  ...
+  Brewfile                       (not stowed, referenced directly)
+  README.md                      (not stowed)
+```
 
 ## Setup
 
@@ -25,41 +37,64 @@ Personal macOS configuration files managed with [GNU Stow](https://www.gnu.org/s
    mise install
    ```
 
-5. Deploy configurations:
+5. Deploy configurations (see [Commands](#commands) below):
    ```bash
-   stow .
+   dotstow
    ```
 
 ## How It Works
 
-Stow creates symlinks from your home directory to files in this repository. This lets you keep all configurations in one place, version control them, and easily deploy on new machines.
+Each top-level directory (`claude/`, `ghostty/`, `mise/`, `zsh/`, `ssh/`, ...) is an independent **stow package**. Its internal structure mirrors the path stow should create under `$HOME` (e.g. `mise/.config/mise/config.toml` gets symlinked to `~/.config/mise/config.toml`).
+
+Because each package is independent:
+- Adding a new tool config = adding a new top-level directory, no other file to edit
+- You can stow/unstow a single package without touching the others
+- `README.md` and `Brewfile` stay at the repo root and are never stowed
 
 ## Commands
 
+Stow is run per-package (`stow -t ~ <package>`), not on the whole repo. Three shell functions defined in `zsh/.zshrc` wrap this in a loop over every top-level directory:
+
 ```bash
-# Deploy all configurations
-stow .
+# Deploy (symlink) every package
+dotstow
 
-# Deploy specific directory
-stow .config
+# Remove symlinks for every package
+dotunstow
 
-# Remove all symlinks
-stow -D .
-
-# Preview changes (dry run)
-stow -n .
-
-# Adopt existing files into repo
-stow --adopt .
+# Restow (unlink + relink) every package — use after editing package contents
+dotrestow
 ```
 
-## Adding Configurations
+Functions:
+```bash
+dotstow() {
+  (cd ~/.dotfiles && for pkg in */; do stow -v -t ~ "${pkg%/}"; done)
+}
+dotunstow() {
+  (cd ~/.dotfiles && for pkg in */; do stow -D -v -t ~ "${pkg%/}"; done)
+}
+dotrestow() {
+  (cd ~/.dotfiles && for pkg in */; do stow -R -v -t ~ "${pkg%/}"; done)
+}
+```
 
-1. Add config files to the appropriate directory structure
-2. Run `stow .` to create symlinks
-3. Commit changes
+For a single package, use plain stow directly:
+```bash
+stow -v -t ~ mise        # deploy just the mise package
+stow -D -v -t ~ mise      # remove just the mise package
+stow -R -v -t ~ mise      # restow just the mise package
+stow -n -v -t ~ mise      # dry run (preview) for the mise package
+```
 
-Changes to files are reflected immediately via symlinks.
+## Adding a New Package
+
+1. Create a new top-level directory named after the tool (e.g. `foo/`)
+2. Recreate the path stow should produce under `$HOME` inside it (e.g. `foo/.config/foo/config.toml` for a config normally at `~/.config/foo/config.toml`)
+3. Run `dotstow` (or `stow -v -t ~ foo` to just deploy the new package)
+4. Commit changes
+
+Changes to files are reflected immediately via symlinks — no need to re-stow after editing an already-deployed config file.
 
 ## Brewfile
 
@@ -67,20 +102,20 @@ Changes to files are reflected immediately via symlinks.
 
 ```bash
 # Install everything listed in the Brewfile
-brew bundle install --file=Brewfile
+brew bundle install --file=~/.dotfiles/Brewfile
 
 # Check what's missing/outdated without installing
-brew bundle check --file=Brewfile
+brew bundle check --file=~/.dotfiles/Brewfile
 
 # Update the Brewfile with your currently installed packages
-brew bundle dump --file=Brewfile --force
+brew bundle dump --file=~/.dotfiles/Brewfile --force
 ```
 
 After running `brew bundle dump`, review the diff and manually re-categorize/clean up any new entries before committing.
 
 ## Runtime versions (mise)
 
-[mise](https://mise.jdx.dev/) manages language runtime versions (Node, etc.) declared in `.config/mise/config.toml`.
+[mise](https://mise.jdx.dev/) manages language runtime versions (Node, etc.) declared in `mise/.config/mise/config.toml`.
 
 ```bash
 # Install all tools/versions declared in config.toml

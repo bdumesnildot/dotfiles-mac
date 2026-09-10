@@ -19,31 +19,24 @@
 # -----------------------------------
 
 # CLAUDE
-/.config/claude/*
-!/.config/claude/CLAUDE.md
-!/.config/claude/settings.json
-!/.config/claude/policy-limits.json
-!/.config/claude/skills/
+/claude/.config/claude/*
+!/claude/.config/claude/CLAUDE.md
+!/claude/.config/claude/settings.json
+!/claude/.config/claude/policy-limits.json
+!/claude/.config/claude/skills/
 
 # HERDR
-/.config/herdr/*
-!/.config/herdr/config.toml
-!/.config/herdr/.plugins.lock
-!/.config/herdr/plugins.json
+/herdr/.config/herdr/*
+!/herdr/.config/herdr/config.toml
+!/herdr/.config/herdr/.plugins.lock
+!/herdr/.config/herdr/plugins.json
 
 # KARABINER
-/.config/karabiner/automatic_backups
-
-
-# VS CODE
-.vscode/
-
-
-# WARP
-/.warp/themes/*
-!/.warp/themes/custom/
-
+/karabiner/.config/karabiner/automatic_backups
 
 # ZED
-/.config/zed/conversations
-/.config/zed/prompts
+/zed/.config/zed/conversations
+/zed/.config/zed/prompts
+
+# ZSH
+/zsh/.zsh_history
