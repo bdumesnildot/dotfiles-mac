@@ -8,6 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   // -- GENERAL
+  "cli_default_open_behavior": "existing_window",
   "agent_servers": {
     "opencode": {
       "type": "registry",
@@ -151,7 +152,7 @@
   },
   // -- AI
   "edit_predictions": {
-    "provider": "codestral",
+    "provider": "copilot",
     "disabled_globs": [],
   },
   "language_models": {},

@@ -10,11 +10,9 @@
   "agent": {
     "plan": {
       "model": "github-copilot/claude-sonnet-5",
-      // "model": "opencode/gemini-3.5-flash",
     },
     "build": {
       "model": "github-copilot/kimi-k2.7-code",
-      // "model": "opencode/kimi-k2.5",
     },
   },
   "provider": {
@@ -47,13 +45,5 @@
       "type": "remote",
       "url": "http://127.0.0.1:3845/sse",
     },
-    // "n8n-helium": {
-    //   "enabled": false,
-    //   "type": "remote",
-    //   "url": "{file:./.secrets/N8N_HELIUM_MCP_SERVER_URL}",
-    //   "headers": {
-    //     "Authorization": "{file:./.secrets/N8N_HELIUM_MCP_BEARER_TOKEN}",
-    //   },
-    // },
   },
 }

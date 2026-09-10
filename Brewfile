@@ -14,6 +14,8 @@ brew "bat"
 brew "btop"
 # More intuitive version of du in rust
 brew "dust"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Agent multiplexer that lives in your terminal
@@ -128,9 +130,12 @@ cask "android-platform-tools"
 # -----------------------------------
 # BREWS - AI / agents
 # -----------------------------------
+# Headless browser for AI agents
+brew "agent-browser"
 # Create, run, and share large language models (LLMs)
 brew "ollama", restart_service: :changed
 # AI coding agent, built for the terminal
+brew "claude-code"
 brew "opencode"
 # Minimal GUI for AI code agents
 cask "t3-code"

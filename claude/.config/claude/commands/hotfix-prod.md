@@ -1,6 +1,7 @@
 ---
 description: Prepare production hotfix from PR number.
-model: github-copilot/claude-sonnet-5
+argument-hint: <pr-number>
+model: claude-sonnet-5
 ---
 
 **important** use your skill `prod-hotfix-pragma-web` for this procedure.
@@ -21,8 +22,8 @@ Input PR number: `$ARGUMENTS`
 ## Procedure
 
 1. Validate input.
-   - Require exactly one arg: `$1`.
-   - `$1` must be numeric.
+   - Require exactly one arg: `$ARGUMENTS`.
+   - `$ARGUMENTS` must be numeric.
    - If invalid, stop with `INPUT_INVALID`.
 
 2. Validate repository.
@@ -42,16 +43,16 @@ origin  git@github.com:popina/pragma-web.git (push)
    - If branch `production` exists: `git switch production`.
    - Else: `git switch -c production --track origin/production`.
    - Sync strictly: `git merge --ff-only origin/production`.
-   - Create working branch from production: `git switch -c hotfix/pr-$1-$(date +%Y%m%d)`.
+   - Create working branch from production: `git switch -c hotfix/pr-$ARGUMENTS-$(date +%Y%m%d)`.
 
 4. Fetch and evaluate PR with `gh`.
    - Run `gh auth status -h github.com`, stop on failure (`GH_AUTH_REQUIRED`).
-   - Run `gh pr view $1 --repo popina/pragma-web --json number,title,url,state,baseRefName,headRefName,mergeable,files,commits`.
+   - Run `gh pr view $ARGUMENTS --repo popina/pragma-web --json number,title,url,state,baseRefName,headRefName,mergeable,files,commits`.
    - PR must be merged and based on `main`, else stop `PR_NOT_MERGED_ON_MAIN`.
    - Briefly explain impact/risk from changed files.
 
 5. Apply PR changes.
-   - Get commit SHAs: `gh pr view $1 --repo popina/pragma-web --json commits --jq '.commits[].oid'`.
+   - Get commit SHAs: `gh pr view $ARGUMENTS --repo popina/pragma-web --json commits --jq '.commits[].oid'`.
    - Apply all commits without committing: `git cherry-pick -n <sha1> <sha2> ...`.
    - If conflict, stop with `APPLY_CONFLICT`, show conflicted files, suggest `git cherry-pick --abort`.
    - Remove changesets: `git restore --staged --worktree .changeset` (if present).
@@ -76,11 +77,11 @@ origin  git@github.com:popina/pragma-web.git (push)
 9. Optional push + PR (only after commit).
    - Ask explicit question: `Push branch and open PR to production now? (yes/no)`.
    - If user says yes:
-     - Push branch: `git push -u origin hotfix/pr-$1-$(date +%Y%m%d)`.
+     - Push branch: `git push -u origin hotfix/pr-$ARGUMENTS-$(date +%Y%m%d)`.
      - Create PR with `gh` targeting `production` from current branch.
      - Title should be concise, prefixed `hotfix/`.
      - Body must include:
-       - Origin PR mention: `Backport of #$1`.
+       - Origin PR mention: `Backport of #$ARGUMENTS`.
        - What changed (short file/area summary).
        - Why/purpose for production.
    - If user says no: stop cleanly, local commit only.

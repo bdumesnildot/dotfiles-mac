@@ -12,6 +12,7 @@
 .env
 .secrets
 .ssh
+ssh
 
 
 # -----------------------------------
@@ -23,7 +24,16 @@
 !/claude/.config/claude/CLAUDE.md
 !/claude/.config/claude/settings.json
 !/claude/.config/claude/policy-limits.json
+!/claude/.config/claude/commands/
 !/claude/.config/claude/skills/
+
+# GH
+/gh/.config/gh/hosts.yml
+
+# MICRO
+/micro/.config/micro/*
+!/micro/.config/micro/settings.json
+!/micro/.config/micro/bindings.json
 
 # HERDR
 /herdr/.config/herdr/*

@@ -1,7 +1,6 @@
-# ==============================================================================
-#  POWERLEVEL10K INSTANT PROMPT
-# ==============================================================================
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -43,8 +42,6 @@ mkcd () {
 # ==============================================================================
 #  ALIASES
 # ==============================================================================
-alias zshconfig="zed -n ~/.config/zsh/zshrc"
-alias ohmyzsh="zed -n ~/.oh-my-zsh"
 alias dotfiles="zed -n ~/.dotfiles"
 
 # cmd aliases
@@ -55,10 +52,10 @@ alias cat='bat'
 alias grep='rg'
 alias man='tldr'
 
-alias cdd='cd ~/dev/'
-alias cdpp='cd ~/dev/pragma-project'
+alias cdp='cd ~/projects/'
+alias cdpp='cd ~/projects/pragma-project'
 alias cddw='cd ~/Downloads'
-alias cdcf='cd ~/.config'
+alias cdd='cd ~/.dotfiles'
 
 alias tmpop='~/.config/tmux/launch/launch_popina_web.sh'
 alias tmls='tmux ls'
