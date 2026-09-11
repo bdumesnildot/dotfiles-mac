@@ -44,6 +44,10 @@ ssh
 # KARABINER
 /karabiner/.config/karabiner/automatic_backups
 
+# T3
+/t3/.t3/*
+!/t3/.t3/scripts
+
 # ZED
 /zed/.config/zed/conversations
 /zed/.config/zed/prompts

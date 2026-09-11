@@ -80,6 +80,7 @@ alias currentbranch="git_current_branch"
 alias gploc='git pull origin $(currentbranch)'
 alias gplom='git pull origin main'
 alias gcm='git commit -m'
+alias gbname='git branch -m'
 
 # utils aliases
 alias lg="lazygit"
